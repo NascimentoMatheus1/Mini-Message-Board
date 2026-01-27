@@ -1,6 +1,11 @@
+const path = require('node:path');
 const basicRouter = require('./routes/basicRouter');
 const express = require('express');
 const app = express();
+
+// view engine config
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
 
 app.use('/', basicRouter);
 
