@@ -21,5 +21,8 @@ route.get('/', (req, res) => {
 route.get('/new', (req, res) => {
     res.send('new page');
 });
+route.use((req, res) => {
+    res.render('404', { title: 'Error 404'});
+});
 
 module.exports = route;
