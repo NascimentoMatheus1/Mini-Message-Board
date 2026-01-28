@@ -1,3 +1,5 @@
+const { body, validationResult, matchedData } = require('express-validator');
+
 let messages = [
     {
         id: 0,
@@ -34,10 +36,34 @@ exports.getFormPage = (req, res) => {
     res.render('form', { title: 'new message' });
 };
 
-exports.createNewMessage = (req, res) => {
-    const { userName, userMessage } = req.body;
+const validadeNewMessage = [
+    body('userName')
+        .trim()
+        .isAlpha()
+        .withMessage('Name must only contain letters.')
+        .isLength({ min: 2, max: 20 })
+        .withMessage('Name must be between 2 and 20 characters'),
+    body('userMessage')
+        .trim()
+        .isLength({ min: 1 })
+        .withMessage('Message is too short (min 1 chars)')
+        .isLength({ max: 300 })
+        .withMessage('Message is too long (max 300 chars)'),
+];
 
-    if (userName && userMessage) {
+exports.messageCreatePost = [
+    validadeNewMessage,
+    (req, res) => {
+        const errors = validationResult(req);
+
+        if (!errors.isEmpty()) {
+            return res.status(400).render('form', {
+                title: 'Bad Request',
+                errors: errors.array(),
+            });
+        }
+
+        const { userMessage, userName } = matchedData(req);
         let newId = messages[messages.length - 1].id + 1;
         messages.push({
             id: newId,
@@ -46,10 +72,9 @@ exports.createNewMessage = (req, res) => {
             added: new Date(),
             detailsLink: `/messages/${newId}`,
         });
-    }
-
-    res.redirect('/');
-};
+        res.redirect('/');
+    },
+];
 
 exports.getErrorPage = (req, res) => {
     res.render('404', { title: 'Error 404' });

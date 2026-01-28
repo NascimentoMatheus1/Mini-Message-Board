@@ -6,7 +6,7 @@ route.get('/', messageController.getAllMessages);
 route.get('/messages/:id', messageController.getMessageById);
 route.get('/new', messageController.getFormPage);
 
-route.post('/new', messageController.createNewMessage);
+route.post('/new', messageController.messageCreatePost);
 
 route.use(messageController.getErrorPage);
 
