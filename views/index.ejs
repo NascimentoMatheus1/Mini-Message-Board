@@ -1,20 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include('./partials/head')%>
+<%- include('./partials/head')%>
     <body>
-        <main>
-            <h1>Messages Board</h1>
-            <a href="/new">Add new message</a>
-            <ul class="board">
-                <% messages.map((message) => { %>
-                    <li class="messageContainer">
-                        <p>user: <%= message.user %></p>
-                        <p>says: <%= message.text %></p>
-                        <p>date: <%= message.added %></p>
-                        <p><a href=<%= message.detailsLink %>>details</a></p>
-                    </li>    
+        <div class="container">
+            <h1>Message Board</h1>
+            <div class="message-list">
+                <% messages.map((message)=> { %>
+                    <div class="message-card">
+                        <div class="message-header">
+                            <span class="user-name">
+                                <%= message.user %>
+                            </span>
+                            <span class="date">
+                                <%= message.added %>
+                            </span>
+                        </div>
+                        <p class="message-text">
+                            <%= message.text %>
+                        </p>
+                        <a href=<%=message.detailsLink %> class="btn-open">See details →</a>
+                    </div>
                 <% }) %>
-            </ul>
-        </main>
+            </div>
+            <a href="/new" class="btn-new">+ New Message</a>
+        </div>
     </body>
+
 </html>
