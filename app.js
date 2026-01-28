@@ -7,6 +7,10 @@ const app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+// Middlewares
+app.use(express.urlencoded({ extended: true }));
+
+// routes
 app.use('/', basicRouter);
 
 const port = 3000;

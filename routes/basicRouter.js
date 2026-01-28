@@ -1,7 +1,7 @@
 const { Router } = require('express');
 const route = Router();
 
-const messages = [
+let messages = [
     {
         text: 'Hi there!',
         user: 'Amando',
@@ -15,14 +15,25 @@ const messages = [
 ];
 
 route.get('/', (req, res) => {
-    res.render('index', { title: 'Mini Messageboard', messages: messages });
+    res.render('index', { title: 'Mini Messageboard', messages });
 });
 
 route.get('/new', (req, res) => {
-    res.send('new page');
+    res.render('form', { title: 'new message' });
 });
+
+route.post('/new', (req, res) => {
+    const { userName, userMessage } = req.body;
+
+    if (userName && userMessage) {
+        messages.push({ text: userMessage, user: userName, added: new Date() });
+    }
+
+    res.redirect('/');
+});
+
 route.use((req, res) => {
-    res.render('404', { title: 'Error 404'});
+    res.render('404', { title: 'Error 404' });
 });
 
 module.exports = route;
