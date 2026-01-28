@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head')%>
+    <body>
+        <main>
+            <h1>Messages Details</h1>
+            <div>
+                <p>CONTENT: <%= message.text %></p>
+                <p>AUTHOR: <%= message.user %></p>
+                <p>CREATED AT: <%= message.added %></p>
+            </div>
+            <a href="/">Go back</a>
+        </main>
+    </body>
+</html>

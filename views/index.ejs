@@ -2,13 +2,21 @@
 <html lang="en">
     <%- include('./partials/head')%>
     <body>
-        <ul>
-            <% messages.map((message) => { %>
-                <p>user: <%= message.user %></p>
-                <p>says: <%= message.text %></p>
-                <p>date: <%= message.added %></p>
-            <% }) %>
-        </ul>
-        <a href="/new">Add new message</a>
+        
+        <main>
+            <h1>Messages Board</h1>
+            <a href="/new">Add new message</a>
+            <ul class="board">
+                <% messages.map((message) => { %>
+                    <li class="messageContainer">
+                        <p>user: <%= message.user %></p>
+                        <p>says: <%= message.text %></p>
+                        <p>date: <%= message.added %></p>
+                        <p><a href=<%= message.detailsLink %>>details</a></p>
+                    </li>    
+                <% }) %>
+            </ul>
+        </main>
+        
     </body>
 </html>
