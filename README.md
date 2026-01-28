@@ -1,12 +1,21 @@
 # 📝 Mini Message Board
 - A dynamic, full-stack web application that allows users to post and view messages in real-time. This project was built to practice the fundamentals of Node.js, Express, and Server-Side Rendering.
 
+# 🚀 Deployment on Render
+## This project is live and hosted on Render. I chose Render for its automated CI/CD (Continuous Integration/Continuous Deployment) pipeline, which syncs directly with my GitHub repository.
+# 🌐 Live Demo: 
+## You can explore the live application at the link this link 👉 [🔥 Live Demo](https://mini-message-board-nascimentomatheus1.onrender.com)
+### ***Please note that since the project is hosted on Render's free tier, the server may take approximately 60 seconds to "spin up" if it hasn't been accessed recently. Once the initial load is complete, the board will be fully responsive and ready for your messages!
+
 # 📸 Preview
 ## Index: A clean list of cards showcasing user messages.
+![image.alt](https://github.com/NascimentoMatheus1/Mini-Message-Board/blob/088710afc755b1dfc22e01052cd4d350943cc843/index-page.png)
 
-## New Message: A user-friendly form with real-time validation feedback.
+## Form page: A user-friendly form with real-time validation feedback.
+![image.alt](https://github.com/NascimentoMatheus1/Mini-Message-Board/blob/088710afc755b1dfc22e01052cd4d350943cc843/form-page.png)
 
 ## 404 Page: A custom-designed error page for a polished user experience.
+![image.alt](https://github.com/NascimentoMatheus1/Mini-Message-Board/blob/088710afc755b1dfc22e01052cd4d350943cc843/404-page.png)
 
 # 🚀 Features
 - Real-time Feed: View a list of messages with author names and timestamps.
