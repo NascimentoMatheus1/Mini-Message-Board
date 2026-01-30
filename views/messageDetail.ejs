@@ -10,12 +10,18 @@
                     <span class="user-name">
                         <%= item.username %>
                     </span>
-                    <span class="date">
-                        <%= item.added %>
-                    </span>
                 </div>
                 <p class="message-text">
+                    <span class="user-name">
+                        MESSAGE:
+                    </span>
                     <%= item.message %>
+                </p>
+                <p class="message-text">
+                    <span class="user-name">
+                        CREATED AT:
+                    </span>
+                    <%= timing %>
                 </p>
                 <a href="/" class="btn-open">Go back →</a>
             </div>

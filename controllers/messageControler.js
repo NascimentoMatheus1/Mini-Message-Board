@@ -36,8 +36,8 @@ const getMessageById = async (req, res) => {
             });
             return;
         }
-
-        res.render('messageDetail', { title: 'Details', item: result });
+        const timing = calculatePastTime(result.added);
+        res.render('messageDetail', { title: 'Details', item: result, timing });
     } catch (error) {
         console.log(error.message);
         serverError(res);
@@ -106,6 +106,23 @@ function serverError(res) {
             'The server encountered an internal error or misconfiguration and was unable to complete your request.',
     });
     return;
+}
+
+function calculatePastTime(dataString) {
+    const postDate = new Date(dataString);
+    const now = new Date();
+    const seconds = Math.floor((now - postDate) / 1000);
+
+    if (seconds < 60) return `right now`;
+
+    const minutes = Math.floor(seconds / 60);
+    if (minutes < 60) return `${minutes} min ago`;
+
+    const hours = Math.floor(minutes / 60);
+    if (hours < 24) return `${hours} hours ago`;
+
+    const days = Math.floor(hours / 24);
+    return `${days} days ago`;
 }
 
 module.exports = {
