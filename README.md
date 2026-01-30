@@ -1,4 +1,4 @@
-# 📝 Mini Message Board [![pt-br](https://img.shields.io/badge/lang-pt--br-green.svg)](https://github.com/NascimentoMatheus1/Mini-Message-Board/blob/12171d31c4884c36f0313a4492a335956c8e3965/README.pt-br.md)
+# 📝 Mini Message Board [![pt-br](https://img.shields.io/badge/lang-pt--br-green.svg)](https://github.com/NascimentoMatheus1/Mini-Message-Board/blob/c1a1be8d695aa7eaf0f64df77b755603fd6d7e88/README.pt-br.md#-principais-objetivos-de-aprendizado)
 A dynamic, full-stack web application that allows users to post and view messages in real-time. This project was built to practice the fundamentals of Node.js, Express, and Server-Side Rendering.
 
 #  🌐 Deployment 
