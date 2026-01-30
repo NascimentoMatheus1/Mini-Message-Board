@@ -5,6 +5,16 @@
     <body>
         <div class="container">
             <h1>Message Board</h1>
+            <div class="search-container">
+                <form action="/" method="GET" class="search-form">
+                    <div class="input-group">
+                        <input type="text" name="search" placeholder="Search author or messages..." aria-label="Search"
+                            value="<%= search %>">
+                        <button type="submit" class="btn-filter">Filter</button>
+                    </div>
+                    <a href="/" class="btn-clean">Clear Search</a>
+                </form>
+            </div>
             <div class="message-list">
                 <% messages.map((item)=> { %>
                     <div class="message-card">
