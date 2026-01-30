@@ -4,11 +4,16 @@
 
     <body>
         <div class="error-container">
-            <h1 class="error-code">404</h1>
+            <h1 class="error-code">
+                <%= errorCode %>
+            </h1>
 
             <div class="error-message">
-                <h2>Message Not Found</h2>
-                <p>The page you're looking for was moved, deleted, or never existed in our board.</p>
+                <h2><%= errorMessage %>
+                </h2>
+                <p>
+                    <%= errorDetails %>
+                </p>
 
                 <a href="/" class="btn-home">Return to Message Board</a>
             </div>
