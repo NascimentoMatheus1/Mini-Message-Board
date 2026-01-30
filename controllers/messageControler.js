@@ -3,8 +3,19 @@ const { body, validationResult, matchedData } = require('express-validator');
 
 const getAllMessages = async (req, res) => {
     try {
-        const messages = await db.getAllMessages();
-        res.render('index', { title: 'Mini Messageboard', messages });
+        let messages = [];
+        const searchTerm = req.query.search;
+        if (searchTerm) {
+            messages = await db.filterMessages(searchTerm);
+        } else {
+            messages = await db.getAllMessages();
+        }
+
+        res.render('index', {
+            title: 'Mini Messageboard',
+            messages,
+            search: searchTerm || '',
+        });
     } catch (error) {
         console.log(error.message);
         serverError(res);

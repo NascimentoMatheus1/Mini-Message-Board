@@ -7,6 +7,14 @@ async function getAllMessages() {
     return rows;
 }
 
+async function filterMessages(term) {
+    const { rows } = await pool.query(
+        'SELECT * FROM messages WHERE message ILIKE ($1) or username ILIKE ($1)',
+        [`%${term}%`],
+    );
+    return rows;
+}
+
 async function getMessageById(id) {
     const { rows } = await pool.query(
         'SELECT * FROM messages WHERE id = ($1)',
@@ -27,4 +35,5 @@ module.exports = {
     getAllMessages,
     getMessageById,
     insertMessage,
+    filterMessages
 };
